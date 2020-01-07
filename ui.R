@@ -28,7 +28,7 @@ shinyUI(fluidPage(
         source(file.path("ui", "ui_mps.R"),  local = TRUE)$value,
         
         # ABOUT (abt) -------------------
-        source(file.path("ui", "ui_abt.R"),  local = TRUE)$value,
+#        source(file.path("ui", "ui_abt.R"),  local = TRUE)$value,
     
         # UPDATE ---------------
         text = paste('Last Update:', format(last_updated, '%d %b %Y') )

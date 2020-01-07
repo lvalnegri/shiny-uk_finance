@@ -26,30 +26,33 @@ app_path <- file.path(pub_path, 'shiny_apps', 'master_portal')
 last_updated <- as.Date('2019-11-03')
 
 #===== LOAD DATA --------------------------------
-dts <- list()
-bnd <- rgdal::readOGR(app_path, '')
+# dts <- list()
+# bnd <- rgdal::readOGR(app_path, '')
 # font.lst <- read.fst(file.path(data_path, 'common', 'fonts'), as.data.table = TRUE)
 # font.lst <- sort(unique(font.lst[is_active == 1, family]))
-maptiles <- fread(file.path(app_path, 'maptiles.csv'))
-maptiles <- maptiles[require_reg == 0,
-    .(
-        name = paste(provider, ifelse(name == '\\N', '', paste('-', name))),
-        provider = paste0(provider, ifelse(name == '\\N', '', paste0('.', name)))
-    )
-]
+# maptiles <- fread(file.path(app_path, 'maptiles.csv'))
+# maptiles <- maptiles[require_reg == 0,
+#     .(
+#         name = paste(provider, ifelse(name == '\\N', '', paste('-', name))),
+#         provider = paste0(provider, ifelse(name == '\\N', '', paste0('.', name)))
+#     )
+# ]
 # palettes <- fread(file.path(app_path, 'palettes.csv'))
 
 
 #===== LISTS ------------------------------------
 
 # products
-
+lst.prd <- c('Personal' = 'pax', 'SME' = 'sme', 'Mortgage' = 'mortgage')
 
 # geographies
-
+lst.geo <- c(
+    'Postcode Sectors' = 'PCS', 'Postcode Districts' = 'PCD', 'Postcode Towns' = 'PCT', 
+    'Postcode Areas' = 'PCA', 'Regions' = 'RGS', 'Countries' = 'CTRY'
+)
 
 # metrics
-
+lst.mtc <- c('None' = 'None')
 
 # list of options for labels in maps
 lbl.options <- labelOptions(
@@ -69,8 +72,8 @@ class.methods <- c(
 )
 
 # maptiles
-tiles.lst <- as.list(maptiles[, provider])
-names(tiles.lst) <- maptiles[, name]
+# tiles.lst <- as.list(maptiles[, provider])
+# names(tiles.lst) <- maptiles[, name]
 
 
 
