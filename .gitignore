@@ -27,3 +27,4 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 shiny-uk_finance.Rproj
+shiny-uk_lending.Rproj
